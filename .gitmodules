@@ -1,0 +1,9 @@
+[submodule "rofi-themes-collection"]
+	path = rofi-themes-collection
+	url = https://github.com/newmanls/rofi-themes-collection.git
+[submodule "rofi-power-menu"]
+	path = rofi-power-menu
+	url = https://github.com/jluttine/rofi-power-menu.git
+[submodule "alacritty/alacritty-theme"]
+	path = alacritty/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme.git

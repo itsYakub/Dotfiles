@@ -1,0 +1,27 @@
+import = [
+    "~/.config/alacritty/alacritty-theme/themes/everforest_dark.toml"
+]
+
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+decorations = "None"
+
+[font]
+size = 16
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
