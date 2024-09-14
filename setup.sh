@@ -8,12 +8,17 @@ fi
 ln -sv $PWD/.bashrc $HOME/
 
 if [ -d $HOME/.config/i3 ]; then
-    mv -v $HOME/.config/i3 $HOME/.config/_i3 
+    mv -v $HOME/.config/i3 $HOME/.config/_i3
 fi
 ln -sv $PWD/i3 $HOME/.config/
 
+if [ -d $HOME/.config/sway ]; then
+    mv -v $HOME/.config/sway $HOME/.config/_sway
+fi
+ln -sv $PWD/sway $HOME/.config/
+
 if [ -d $HOME/.config/polybar ]; then
-    mv -v $HOME/.config/polybar $HOME/.config/_polybar 
+    mv -v $HOME/.config/polybar $HOME/.config/_polybar
 fi
 ln -sv $PWD/polybar $HOME/.config/
 

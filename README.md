@@ -32,11 +32,13 @@ $ ./undo.sh
 *WARNING: This will only work if the previous directories (those with the `_` prefix) weren't modified, deleted or renamed*
 
 ## Package list:
-- Desktop Environment: [i3-gaps](https://github.com/Airblader/i3)
+- Desktop Environment:
+	- [i3-gaps](https://github.com/Airblader/i3)
+	- [sway](https://github.com/swaywm/sway)
 - Bar: [polybar](https://github.com/polybar/polybar)
 - Compositor: [picom](https://github.com/yshui/picom)
 - Terminal emulator: [alacritty](https://github.com/alacritty/alacritty)
-- Shell: bash
+- Shell: [bash](https://www.gnu.org/software/bash/)
 - Menu: [rofi](https://github.com/davatorium/rofi.git)
 - Wallpaper set-up: [feh](https://github.com/derf/feh.git)
 - Screenshooting: [maim](https://github.com/naelstrof/maim)
