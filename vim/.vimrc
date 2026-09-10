@@ -36,12 +36,18 @@ Plug 'lambdalisue/vim-fern', { 'as': 'fern' }
 let g:fern_path=expand('~/.vim/plugged/fern')
 
 
+Plug 'lambdalisue/vim-fern-hijack', { 'as': 'fern-hijack' }
+
+let g:fern_hijack_path=expand('~/.vim/plugged/fern-hijack')
+
+
 Plug 'lambdalisue/fern-git-status.vim', { 'as': 'fern-git-status' }
 
 let g:fern_git_status_path=expand('~/.vim/plugged/fern-git-status')
 
 
 call plug#end()
+
 
 " :h shell
 " "
@@ -50,12 +56,14 @@ call plug#end()
 " "
 set shell=/bin/bash
 
+
 " :h number
 " "
 " 
 " Print the line number in front of each line. 
 " "
 set number
+
 
 " :h fillchars
 " "
@@ -64,12 +72,14 @@ set number
 " "
 set fillchars=eob:\ 
 
+
 " :h scrollof
 " "
 " 
 " Minimal number of screen lines to keep above and below the cursor.
 " "
 set scrolloff=4
+
 
 " :h tabstop
 " "
@@ -78,12 +88,14 @@ set scrolloff=4
 " "
 set tabstop=4
 
+
 " :h softtabstop 
 " "
 "
 " Create soft tab stops, separated by 'softtabstop' number of columns.:
 " "
 set softtabstop=4
+
 
 " :h shiftwidth
 " "
@@ -92,12 +104,14 @@ set softtabstop=4
 " "
 set shiftwidth=4
 
+
 " :h smartindent
 " "
 "
 " Do smart autoindenting when starting a new line.
 " "
 set smartindent
+
 
 " :h nowrap
 " "
@@ -106,12 +120,14 @@ set smartindent
 " "
 set nowrap
 
+
 " :h expandtab
 " "
 "
 " In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
 " "
 set expandtab
+
 
 " :h mouse
 " "
@@ -128,12 +144,14 @@ set expandtab
 " "
 set mouse=a
 
+
 " :h nohlsearch
 " "
 "
 " When there is a previous search pattern, highlight all its matches.
 " "
 set nohlsearch
+
 
 " :h incsarch
 " "
@@ -142,12 +160,6 @@ set nohlsearch
 " "
 set incsearch
 
-" :h noshowmode
-" "
-"
-" If in Insert, Replace or Visual mode put a message on the last line.
-" "
-set noshowmode
 
 " :h fold
 " "
@@ -162,34 +174,6 @@ set noshowmode
 " "
 set foldmethod=marker
 
-" :h netwr
-" :h netwr-browser-settings
-" :h netwr-browser-options
-" :h netwr-browser-var
-" "
-"
-" Set the default listing style:
-" = 0: thin listing (one file per line)
-" = 1: long listing (one file per line with time
-"      stamp information and file size)
-" = 2: wide listing (multiple files in columns)
-" = 3: tree style listing
-" "
-let g:netrw_liststyle=3
-
-" enable/suppress the banner
-" =0: suppress the banner
-" =1: banner is enabled (default)
-" "
-let g:netrw_banner=0
-
-" Controlled by the "a" map (see |netrw-a|)
-" =0 : show all
-" =1 : show not-hidden files
-" =2 : show hidden files only
-"  default: =1
-" "
-let g:netrw_hide=1
 
 if isdirectory(g:fern_path)
 
@@ -235,25 +219,22 @@ if isdirectory(g:fern_path)
 
     endfunction
 
-    augroup FernEvents
-
-        autocmd!
-        autocmd FileType fern call FernInit()
-
-        " replace netrw with fern
-        autocmd VimEnter * command! Explore  Fern . -reveal=%
-        autocmd VimEnter * command! Vexplore Fern . -reveal=% -opener=vsplit
-        autocmd VimEnter * command! Sexplore Fern . -reveal=% -opener=split
-        autocmd VimEnter * command! Lexplore Fern . -reveal=% -drawer -width=25
-
-    augroup END
-
     " Set 1 to enter hidden mode (show hidden files) in default.
     " Default: 0
     " "
     let g:fern#default_hidden=1
 
+    " ...
+
 endif
+
+
+if isdirectory(g:fern_hijack_path)
+
+    " ...
+
+endif
+
 
 if isdirectory(g:fern_git_status_path)
 
@@ -263,32 +244,10 @@ if isdirectory(g:fern_git_status_path)
 
     let g:fern_git_status#disable_submodules=1
 
+    " ...
+
 endif
 
-" :h laststatus
-" "
-"
-" The value of this option influences when the last window will have a status line:
-" 0: never
-" 1: only if there are at least two windows
-" 2: always
-" "
-set laststatus=2
-
-" :h statusline 
-" "
-"
-" When non-empty, this option determines the content of the status line.
-" "
-set statusline=%!_statln()
-function! _statln()
-
-    let line  = '[%{mode(0)}] %f %m '
-    let line .= '%='
-    let line .= '%y %l:%v/%L (%p%%)'
-    return (line)
-
-endfunction
 
 " :h showtabline
 " "
@@ -299,6 +258,7 @@ endfunction
 " 2: always
 " "
 set showtabline=1
+
 
 " :h syntax 
 " "
@@ -315,6 +275,7 @@ if exists('+termguicolors')
     if isdirectory(g:catppuccin_path) | colorscheme catppuccin_mocha | endif
 
 endif
+
 
 command! -nargs=? -complete=customlist,_skeleton_complete Skeleton call _skeleton(<f-args>)
 function! _skeleton(...)
@@ -352,6 +313,7 @@ function! _skeleton(...)
     execute '0r ' . fnameescape(l:template)
 
 endfunction
+
 
 function! _skeleton_complete(ArgLead, CmdLine, CursorPos)
 
